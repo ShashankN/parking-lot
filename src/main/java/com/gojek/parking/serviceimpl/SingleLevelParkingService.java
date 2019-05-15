@@ -49,11 +49,9 @@ public class SingleLevelParkingService implements ParkingLotService {
 	public void printVehicleRegisterNumberOfColor(String color) {
 		List<String> vehicleNumbersForColor = lotStateManager.getVehicleNumbersForColor(color);
 		if (vehicleNumbersForColor.isEmpty()) {
-			System.out.println();
+			System.out.println("Not Found");
 		} else {
-			for (String vehicle : vehicleNumbersForColor) {
-				System.out.println(vehicle);
-			}
+			System.out.println(String.join(", ", vehicleNumbersForColor));
 		}
 
 	}
