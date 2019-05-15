@@ -1,5 +1,8 @@
 package com.gojek.parking.resource;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import com.gojek.parking.exception.CommandNotFoundException;
 
 public enum ParkingLotCommand {
@@ -9,6 +12,15 @@ public enum ParkingLotCommand {
 
 	private String command;
 	private int numOfArguments;
+
+	private static final Map<String, ParkingLotCommand> commandMap;
+
+	static {
+		commandMap = new HashMap<>();
+		for (ParkingLotCommand command : ParkingLotCommand.values()) {
+			commandMap.put(command.getCommand(), command);
+		}
+	}
 
 	private ParkingLotCommand(String command, int numOfArguments) {
 		this.command = command;
@@ -23,10 +35,15 @@ public enum ParkingLotCommand {
 		return numOfArguments;
 	}
 
+	public void setNumOfArguments(int numOfArguments) {
+		this.numOfArguments = numOfArguments;
+	}
 
 	public static ParkingLotCommand getCommand(String commad) throws CommandNotFoundException {
-		//TODO
-		return null;
+		if (commandMap.containsKey(commad)) {
+			return commandMap.get(commad);
+		}
+		throw new CommandNotFoundException(String.format("Command %s not found", commad));
 	}
 
 }
