@@ -1,4 +1,4 @@
-package com.gojek.parking.dao.impl;
+package com.gojek.parking.daoimpl;
 
 import java.util.ArrayList;
 import java.util.Arrays;

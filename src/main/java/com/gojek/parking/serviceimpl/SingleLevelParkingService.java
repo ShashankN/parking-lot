@@ -2,7 +2,7 @@ package com.gojek.parking.serviceimpl;
 
 import com.gojek.parking.resource.Vehicle;
 import com.gojek.parking.dao.ParkingLotStateManager;
-import com.gojek.parking.dao.impl.InMemoryParkingStateManager;
+import com.gojek.parking.daoimpl.InMemoryParkingStateManager;
 import com.gojek.parking.exception.SlotNotParkedException;
 import com.gojek.parking.exception.SlotUnavailbleException;
 import com.gojek.parking.exception.VehicleAlreadyParkedException;
